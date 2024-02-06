@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/> 
+        <a href='admin.php'><img src="resoc.jpg" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
@@ -53,12 +53,16 @@
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 // Etape 4: à vous de jouer
                 //@todo: faire la boucle while de parcours des abonnés et mettre les bonnes valeurs ci dessous 
+                while ($followers = $lesInformations->fetch_assoc())
+                {
+                   
                 ?>
                 <article>
                     <img src="user.jpg" alt="blason"/>
-                    <h3>Béatrice</h3>
-                    <p>id:321</p>
+                    <h3><?php echo $followers['alias'] ?></h3>
+                    <p>id:<?php echo $followers['id'] ?></p>
                 </article>
+                <?php }?>
             </main>
         </div>
     </body>
