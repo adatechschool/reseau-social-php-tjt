@@ -69,7 +69,7 @@
                         // NB: md5 est pédagogique mais n'est pas recommandée pour une vraies sécurité
                         //Etape 5 : construction de la requete
                         $lInstructionSql = "INSERT INTO users (id, email, password, alias) "
-                                . "VALUES (0, "
+                                . "VALUES (NULL, "
                                 . "'" . $new_email . "', "
                                 . "'" . $new_passwd . "', "
                                 . "'" . $new_alias . "'"
