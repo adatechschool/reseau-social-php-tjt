@@ -85,7 +85,9 @@
                     <h3>Mes paramètres</h3>
                     <dl>
                         <dt>Pseudo</dt>
-                        <dd><?php echo $user['alias'] ?></dd>
+                        <a href="wall.php?user_id=<?php echo $user['id'] ?>">
+                            <dd><?php echo $user['alias'] ?></dd>
+                        </a>
                         <dt>Email</dt>
                         <dd><?php echo $user['email'] ?></dd>
                         <dt>Nombre de message</dt>
