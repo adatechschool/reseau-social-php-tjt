@@ -68,9 +68,10 @@
                 /**
                  * Etape 3: récupérer tous les messages avec un mot clé donné
                  */
+
                 $laQuestionEnSql = "
                     SELECT posts.content,
-                    posts.created,
+                    posts.created,users.id as author_id,
                     users.alias as author_name,  
                     count(likes.id) as like_number,  
                     GROUP_CONCAT(DISTINCT tags.label) AS taglist 
@@ -80,7 +81,7 @@
                     LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
                     LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
                     LEFT JOIN likes      ON likes.post_id  = posts.id 
-                    WHERE filter.tag_id = '$tagId' 
+                    WHERE filter.tag_id = '$tagId'
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
                     ";
@@ -101,7 +102,9 @@
                         <h3>
                             <time datetime='2020-02-01 11:12:13' ><?php echo $post['created'] ?></time>
                         </h3>
-                        <address><?php echo $post['author_name'] ?></address>
+                        <a href="wall.php?user_id=<?php echo $post['author_id'] ?>">
+                            <address><?php echo $post['author_name'] ?></address>
+                        </a>
                         <div>
                             <p><?php echo $post['content'] ?></p>
                            
