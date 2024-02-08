@@ -49,13 +49,16 @@
                         // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
                         echo "<pre>" . print_r($_POST, 1) . "</pre>";
                         // et complétez le code ci dessous en remplaçant les ???
-                        $new_email = $_POST['???'];
-                        $new_alias = $_POST['???'];
-                        $new_passwd = $_POST['???'];
+                        $new_email = $_POST['email'];
+                        $new_alias = $_POST['pseudo'];
+                        $new_passwd = $_POST['motpasse'];
+                        echo "<pre>" . print_r($new_email, 1) . "</pre>";
+                        echo "<pre>" . print_r($new_alias, 1) . "</pre>";
+                        echo "<pre>" . print_r($new_passwd, 1) . "</pre>";
 
 
                         //Etape 3 : Ouvrir une connexion avec la base de donnée.
-                        $mysqli = new mysqli("localhost", "root", "root", "socialnetwork_tests");
+                        $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
                         //Etape 4 : Petite sécurité
                         // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
                         $new_email = $mysqli->real_escape_string($new_email);
@@ -66,7 +69,7 @@
                         // NB: md5 est pédagogique mais n'est pas recommandée pour une vraies sécurité
                         //Etape 5 : construction de la requete
                         $lInstructionSql = "INSERT INTO users (id, email, password, alias) "
-                                . "VALUES (NULL, "
+                                . "VALUES (0, "
                                 . "'" . $new_email . "', "
                                 . "'" . $new_passwd . "', "
                                 . "'" . $new_alias . "'"
