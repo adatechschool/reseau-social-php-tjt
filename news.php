@@ -36,6 +36,7 @@
             <main>
 
                 <?php
+                 $userId = intval($_GET['user_id']);
                 /*
                   // C'est ici que le travail PHP commence
                   // Votre mission si vous l'acceptez est de chercher dans la base
@@ -61,16 +62,18 @@
                 // cette requete vous est donnée, elle est complexe mais correcte, 
                 // si vous ne la comprenez pas c'est normal, passez, on y reviendra
                 $laQuestionEnSql = "
-                    SELECT posts.content,
+                    SELECT users.*,
+                    posts.content,
                     posts.created,
+                    posts.user_id,
                     users.alias as author_name,  
                     count(likes.id) as like_number,  
                     GROUP_CONCAT(DISTINCT tags.label) AS taglist 
                     FROM posts
-                    JOIN users ON  users.id=posts.user_id
+                    JOIN users ON users.id=posts.user_id
                     LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
                     LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
-                    LEFT JOIN likes      ON likes.post_id  = posts.id 
+                    LEFT JOIN likes      ON likes.post_id  = posts.id
                     GROUP BY posts.id
                     ORDER BY posts.created DESC  
                     LIMIT 5
@@ -103,7 +106,11 @@
                         <h3>
                             <time><?php echo $post['created'] ?></time>
                         </h3>
-                        <address><?php echo $post['author_name'] ?></address>
+                        <a href="wall.php?user_id=<?php echo $post['id'] ?>">
+                            <address>
+                                <?php echo $post['author_name'] ?>
+                            </address>
+                        </a>
                         <div>
                             <p><?php echo $post['content'] ?></p>
                         </div>
