@@ -52,8 +52,9 @@
                         $new_email = $_POST['email'];
                         $new_alias = $_POST['pseudo'];
                         $new_passwd = $_POST['motpasse'];
-
-                       
+                        echo "<pre>" . print_r($new_email, 1) . "</pre>";
+                        echo "<pre>" . print_r($new_alias, 1) . "</pre>";
+                        echo "<pre>" . print_r($new_passwd, 1) . "</pre>";
 
 
                         //Etape 3 : Ouvrir une connexion avec la base de donnée.
