@@ -92,11 +92,11 @@ session_start();
                     <form action="registration.php" method="post">
                         <input type='hidden'name='???' value='achanger'>
                         <dl>
-                            <dt><label for='pseudo'>Pseudo</label></dt>
+                            <dt><label for='pseudo'><?php echo $post['pseudo'] ?></label></dt>
                             <dd><input type='text'name='pseudo'></dd>
-                            <dt><label for='email'>E-Mail</label></dt>
+                            <dt><label for='email'><?php echo $post['email'] ?></label></dt>
                             <dd><input type='email'name='email'></dd>
-                            <dt><label for='motpasse'>Mot de passe</label></dt>
+                            <dt><label for='motpasse'><?php echo $post['motpasse'] ?></label></dt>
                             <dd><input type='password'name='motpasse'></dd>
                         </dl>
                         <input type='submit'>
