@@ -45,8 +45,19 @@ session_start();
             <main>
                 <article>
                     <h1>Déconnexion</h1>
+                    <?php 
+                        if (array_key_exists('logout', $_POST)) {
+                            toQuit();
+                        }
+                        function toQuit() {
+                            unset($_SESSION['connected_id']);
+                            header("Location: login.php");
+                        }
+                    ?>
+                    <form method='post'>
                     <p>Voulez-vous vous déconnecter ?<p>
-                    <input type = 'submit'>
+                    <input type = 'submit' name='logout' class='button' value='déconnexion'>
+                    </form>
                 </article>
             </main>
         </div>
