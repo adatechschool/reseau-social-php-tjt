@@ -1,8 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['connected_id'] == "") {
-    header("Location: login.php");
-}
+include 'restriction.php';
 ?>
 <!doctype html>
 <html lang="fr">

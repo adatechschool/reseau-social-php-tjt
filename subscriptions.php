@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'restriction.php';
 ?>
 <!doctype html>
 <html lang="fr">
