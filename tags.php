@@ -24,7 +24,15 @@ session_start();
                     <li><a href="settings.php?user_id=<?php echo  $_SESSION['connected_id'] ?>">Paramètres</a></li>
                     <li><a href="followers.php?user_id=<?php echo  $_SESSION['connected_id'] ?>">Mes suiveurs</a></li>
                     <li><a href="subscriptions.php?user_id=<?php echo  $_SESSION['connected_id'] ?>">Mes abonnements</a></li>
-                    <li><a href="logOut.php?user_id=<?php echo  $_SESSION['connected_id'] ?>">Déconnexion</a></li>
+                    <?php 
+                        if ($_SESSION['connected_id'] == "") {
+                            echo "<li><a href='login.php'>se connecter</a></li>"; 
+                            
+                        }
+                        else {
+                           echo "<li><a href='logOut.php'>déconnexion</a></li>";
+                        }
+                    ?>
                 </ul>
 
             </nav>

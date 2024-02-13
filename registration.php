@@ -24,6 +24,15 @@ session_start();
                     <li><a href="settings.php?user_id=<?php echo  $_SESSION['connected_id'] ?>">Paramètres</a></li>
                     <li><a href="followers.php?user_id=<?php echo  $_SESSION['connected_id'] ?>">Mes suiveurs</a></li>
                     <li><a href="subscriptions.php?user_id=<?php echo  $_SESSION['connected_id'] ?>">Mes abonnements</a></li>
+                    <?php 
+                        if ($_SESSION['connected_id'] == "") {
+                            echo "<li><a href='login.php'>se connecter</a></li>"; 
+                            
+                        }
+                        else {
+                           echo "<li><a href='logOut.php'>déconnexion</a></li>";
+                        }
+                    ?>
                 </ul>
 
             </nav>
@@ -92,11 +101,11 @@ session_start();
                     <form action="registration.php" method="post">
                         <input type='hidden'name='???' value='achanger'>
                         <dl>
-                            <dt><label for='pseudo'><?php echo $post['pseudo'] ?></label></dt>
+                            <dt><label for='pseudo'><?php echo $post['pseudo'] ?>pseudo</label></dt>
                             <dd><input type='text'name='pseudo'></dd>
-                            <dt><label for='email'><?php echo $post['email'] ?></label></dt>
+                            <dt><label for='email'><?php echo $post['email'] ?>email</label></dt>
                             <dd><input type='email'name='email'></dd>
-                            <dt><label for='motpasse'><?php echo $post['motpasse'] ?></label></dt>
+                            <dt><label for='motpasse'><?php echo $post['motpasse'] ?>mot de passe</label></dt>
                             <dd><input type='password'name='motpasse'></dd>
                         </dl>
                         <input type='submit'>
