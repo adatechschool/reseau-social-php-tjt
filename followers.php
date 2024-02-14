@@ -8,7 +8,7 @@ include 'restriction.php';
         <meta charset="utf-8">
         <title>ReSoC - Mes abonnés </title> 
         <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="style2.css"/>
     </head>
     <body>
         <header>

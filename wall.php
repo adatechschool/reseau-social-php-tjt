@@ -8,11 +8,11 @@ session_start();
         <meta charset="utf-8">
         <title>ReSoC - Mur</title> 
         <meta name="author" content="Julien Falconnet">
-        <link rel="stylesheet" href="style.css"/>        
+        <link rel="stylesheet" href="style2.css"/>        
     </head>
     <body>
         <header>        
-        <a href='admin.php'><img src="resoc.jpg" alt="Logo de notre réseau social"/></a>
+        <a href='admin.php'><img src="logo.png" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=<?php echo  $_SESSION['connected_id'] ?>">Mur</a>

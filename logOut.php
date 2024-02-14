@@ -7,7 +7,7 @@ session_start();
         <meta charset="utf-8">
         <title>ReSoc - logOut</title>
         <meta name="author" content="Julie, Tijana et Théo">
-        <link rel="styleSheet" href="style.css"/>
+        <link rel="styleSheet" href="style2.css"/>
     </head>
     <body>
         <header>
