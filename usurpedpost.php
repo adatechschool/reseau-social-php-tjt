@@ -33,8 +33,7 @@ session_start();
 
             <aside>
                 <h2>Présentation</h2>
-                <p>Sur cette page on peut poster un message en se faisant 
-                    passer pour quelqu'un d'autre</p>
+                <p>Sur cette page on peut poster un message en tant que : <b><?php echo $_SESSION['connected_name'] ?><b></p>
             </aside>
             <main>
                 <article>
@@ -47,13 +46,6 @@ session_start();
                     /**
                      * Récupération de la liste des auteurs
                      */
-                    $listAuteurs = [];
-                    $laQuestionEnSql = "SELECT * FROM users";
-                    $lesInformations = $mysqli->query($laQuestionEnSql);
-                    while ($user = $lesInformations->fetch_assoc())
-                    {
-                        $listAuteurs[$user['id']] = $user['alias'];
-                    }
 
 
                     /**
