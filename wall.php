@@ -73,6 +73,9 @@ session_start();
                         (n° <?php echo $userId ?>)
                     </p>
                 </section>
+                <form action="usurpedpost.php" method="post">
+                        <input type='submit' value='écrire un message'>
+                </form> 
             </aside>
             <main>
                 <?php
