@@ -11,7 +11,7 @@
         <a href='admin.php'><img src="resoc.jpg" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
+                <a href="wall.php?user_id=<?php echo $userId ?>"></a>
                 <a href="feed.php?user_id=5">Flux</a>
                 <a href="tags.php?tag_id=1">Mots-clés</a>
             </nav>
@@ -67,7 +67,8 @@
                  * Etape 3: récupérer tous les messages de l'utilisatrice
                  */
                 $laQuestionEnSql = "
-                    SELECT posts.content, posts.created, users.alias as author_name,
+                    SELECT posts.content, posts.created, users.id as author_id,
+                    users.alias as author_name,
                     COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist 
                     FROM posts
                     JOIN users ON  users.id=posts.user_id
